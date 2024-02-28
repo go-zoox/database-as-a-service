@@ -48,6 +48,30 @@ database-as-a-service server
 database-as-a-service client --server http://127.0.0.1:8838
 ```
 
+### Connect DaaS with API
+
+```bash
+# MySQL / PostgreSQL:
+curl --location 'http://127.0.0.1:9998' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "engine": "postgres",
+    "dsn": "postgres://user:pass@10.0.0.1:5432/daas?sslmode=disable",
+    "statement": "select name as label, id as value from my_table limit 1000"
+}'
+```
+
+```bash
+# Sqlite3:
+curl --location 'http://127.0.0.1:9998' \
+--header 'Content-Type: application/json' \
+--data '{
+    "engine": "sqlite3",
+    "dsn": "https://sqliteviewer.app/Chinook_Sqlite.sqlite",
+    "statement": "SELECT * FROM Album"
+}'
+```
+
 ## Usage
 
 ### Server
