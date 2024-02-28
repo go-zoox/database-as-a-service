@@ -5,6 +5,7 @@ import (
 	"github.com/go-zoox/database-as-a-service/server"
 )
 
+// RegistryServer registers the server command
 func RegistryServer(app *cli.MultipleProgram) {
 	app.Register("server", &cli.Command{
 		Name:  "server",

@@ -7,11 +7,15 @@ import (
 	"github.com/go-zoox/core-utils/regexp"
 	"github.com/go-zoox/fetch"
 	"github.com/go-zoox/fs"
+
+	// sqlite3 driver
 	_ "github.com/mattn/go-sqlite3"
 )
 
+// Name is the name of the engine
 const Name = "sqlite3"
 
+// Query executes a statement and returns the result
 func Query(ctx context.Context, dsn, statement string) (result any, err error) {
 	filepath := dsn
 	// if dsn is an url, download the file to tmp

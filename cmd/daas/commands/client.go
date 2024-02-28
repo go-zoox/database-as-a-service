@@ -10,6 +10,7 @@ import (
 	"github.com/go-zoox/database-as-a-service/data"
 )
 
+// RegistryClient registers the client command
 func RegistryClient(app *cli.MultipleProgram) {
 	app.Register("client", &cli.Command{
 		Name:  "client",

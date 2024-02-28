@@ -4,11 +4,14 @@ import (
 	"context"
 	"database/sql"
 
+	// postgres driver
 	_ "github.com/lib/pq"
 )
 
+// Name is the name of the engine
 const Name = "postgres"
 
+// Query executes a statement and returns the result
 func Query(ctx context.Context, dsn, statement string) (result any, err error) {
 	db, err := sql.Open(Name, dsn)
 	if err != nil {

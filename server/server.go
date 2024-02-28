@@ -14,6 +14,7 @@ import (
 	"github.com/go-zoox/zoox/defaults"
 )
 
+// Server is the interface for database as a service server
 type Server interface {
 	Run() (err error)
 }
@@ -22,6 +23,7 @@ type server struct {
 	opt *Option
 }
 
+// New creates a new database as a service server
 func New(opts ...func(opt *Option)) Server {
 	opt := &Option{
 		Port: 8080,
