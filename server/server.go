@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/go-zoox/chalk"
 	daas "github.com/go-zoox/database-as-a-service"
 	"github.com/go-zoox/database-as-a-service/data"
 	"github.com/go-zoox/database-as-a-service/engine/mysql"
@@ -42,6 +43,19 @@ func (s *server) Run() (err error) {
 	app := defaults.Defaults()
 
 	app.Config.Port = s.opt.Port
+
+	app.Config.Banner = fmt.Sprintf(`
+   ___            ____
+  / _ \___ ____ _/ __/
+ / // / _ '/ _ '/\ \  
+/____/\_,_/\_,_/___/   %s
+
+Database as a Service
+
+%s
+____________________________________O/_______
+                                    O\
+`, chalk.Green("v"+daas.Version), chalk.Blue(daas.URL))
 
 	app.Post(
 		s.opt.Path,
