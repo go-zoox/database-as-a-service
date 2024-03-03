@@ -45,14 +45,14 @@ database-as-a-service server
 ### Connect DaaS with Client
 
 ```bash
-database-as-a-service client --server http://127.0.0.1:8838
+database-as-a-service client --server http://127.0.0.1:8080
 ```
 
 ### Connect DaaS with API
 
 ```bash
 # MySQL / PostgreSQL:
-curl --location 'http://127.0.0.1:9998' \
+curl --location 'http://127.0.0.1:8080' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "engine": "postgres",
@@ -63,7 +63,7 @@ curl --location 'http://127.0.0.1:9998' \
 
 ```bash
 # Sqlite3:
-curl --location 'http://127.0.0.1:9998' \
+curl --location 'http://127.0.0.1:8080' \
 --header 'Content-Type: application/json' \
 --data '{
     "engine": "sqlite3",
